@@ -29,15 +29,4 @@ var squares = Math.round((h*w)/225);
 
       });
     });
-
-
-  // while($('.mainContainer').mousedown()){
-  //   $('.mainContainer div').mouseenter(function(event){
-  //     $(event.target).attr('class', currentColor);
-  //   });
-  // }
-
-  // $('.mainContainer').children().click(function(event){
-  //   $(event.target).attr('class', currentColor);
-  // });
 });
