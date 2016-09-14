@@ -2,31 +2,29 @@ $(document).ready(function(){
 
 var h = window.innerHeight;
 var w = window.innerWidth;
-var squares = Math.round((h*w)/225);
+var squares = Math.round((h*w)/2250);
 
   $('.mainContainer').html(function(){
     for (var i = 0; i < squares ; i++) {
-      $('.mainContainer').append('<div class="box"></div>');
+      $('.mainContainer').append('<div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div><div class="box"></div>');
     }
   });
 
-
-  $('#colors').click(function(event){
-    if(event.target.id === "reset"){
+  $('#colors a').on('click', function(){
+    if(this.id === 'reset'){
       $('.mainContainer > div').attr('class', 'box');
     } else {
-      currentColor = event.target.id;
+      currentColor = this.id;
     }
   });
 
   $('.mainContainer')
-    .mouseup(function(){
-      $('.mainContainer div').unbind('mouseenter');
-    })
     .mousedown(function(){
-      $('.mainContainer div').bind('mouseenter', function(){
-        $(this).attr('class', currentColor);
-
+      $('.mainContainer div').on('mouseenter', function(){ //bind
+        $(this).addClass(currentColor);
       });
+    })
+    .mouseup(function(){
+      $('.mainContainer div').off('mouseenter'); //unbind
     });
 });
